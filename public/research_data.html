@@ -107,14 +107,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Your Balance</li>
         <li><a href="#" class="text-green" > £ 357.24 </a></li>
-        <li class="header">Current Risk Profile</li>
-        <li><a href="#" class="text-red" id='risk_status'> Disallow </a></li>
-        <li class="header">Allow researcher to access your data?</li>
-        <li><a href="javascript:updateRisk('Disallow', 'red');"><i class="fa fa-circle-o text-red"></i> <span>Disallow</span></a></li>
-        <li><a href="javascript:updateRisk('Allow', 'green');"><i class="fa fa-circle-o text-green"></i> <span>Allow</span></a></li>
-        <li class="header">Navigation</li>
-        <li><a href="info.html"><i class="fa fa-dashboard"></i> <span>Your Information</span></a></li>
-        <li><a href="#"><i class="fa fa-dashboard"></i> <span>Who Use Your Data?</span></a></li>
+        <li class="header">Total cost</li>
+        <li><a href="#" class="text-red" > £ 128.0 </a></li>
+        <li><a href="code.html"><i class="fa fa-link"></i> <span>Upload Code</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -133,7 +128,7 @@
                     <!-- /.col (LEFT) -->
                     <div class="box box-danger">
                         <div class="box-header">
-                        <h3 class="box-title">Historical Usage Data</h3>
+                        <h3 class="box-title">Research Data</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -141,8 +136,11 @@
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Reserch Project</th>
-                                <th>Area of research</th>
+                                <th>CT Scan</th>
+                                <th>Date of Birth</th>
+                                <th>MRI Imagery</th>
+                                <th>Retinal Scan</th>
+                                <th>Medical Data</th>
                             </tr>
                             </thead>
                             <tbody id='table'>
@@ -376,23 +374,20 @@
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
 
-    const info = ["Advanced Operational Aviation Weather System (AOAWS)","Coastal Modeling","Dual Polarization","Water Law and Institutions","3DPAWS","4DWX TAMDAR Evaluation","ADAPTE","Advanced Satellite Aviation Weather Products (ASAP) Program","Advanced Wind Prediction System","Advancing Weather Analysis and Forecasting Technologies","Aircraft Ground Deicing","Alaska and Hawaii climate projections","Alaska Ceiling and Visibility Analysis (CVA-AK) Product","AMPS Testbed","Army Test-Range Support"];
-    const listOfReasearchAreas = ['food shortage', 'heart attack', 'cancer', 'child care'];
-    const randomResearchArea = (list) => {
-        return list[Math.floor(Math.random()*list.length)];
-    };
-    const updateTable = (info) => {
+    const updateTable = (num_items) => {
         let htmlText = '';
-        for(let i in info) {
+        for(let i = 0; i < num_items; ++i) {
             htmlText += `<tr><td>${randomDate(new Date(2017, 0, 1), new Date())}</td>`;
-            htmlText += `<td>${info[i]}</td>`;
-            htmlText += `<td>${randomResearchArea(listOfReasearchAreas)}</td>`;
+            htmlText += `<td>${`CT Scan image`}</td>`;
+            htmlText += `<td>${randomDate(new Date(1971, 0, 1), new Date(2012, 0, 1))}</td>`;
+            htmlText += `<td>${`MRI Imagery image`}</td>`;
+            htmlText += `<td>${`Retinal Scan image`}</td>`;
+            htmlText += `<td>${`Medical Data`}</td>`;
             htmlText += `</tr>`;
         }
         $(`#table`).html(htmlText);
     }
-    updateTable(info);
+    updateTable(200);
 </script>
 </body>
 </html>
-    
