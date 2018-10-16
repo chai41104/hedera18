@@ -154,70 +154,68 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
-                          <table class="table table-hover">
-                            <tr>
-                              <th>Field</th>
-                              <th>Data Type</th>
-                              <th>Identifying Information?</th>
-                              <th>Last Modified</th>
-                              <th>Allow Access?</th>
-                            </tr>
-                            <tr>
-                              <td>Name</td>
-                              <td><span id='state1' class="label label-warning">String</span></td>
-                              <td>Yes</td>
-                              <td>9th November 2017</td>
-                              <td>
-                                <input type="radio" name="allowdeny"> Allow
-                                <input type="radio" name="allowdeny" checked="checked"> Deny
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Date of Birth</td>
-                              <td><span id='state1' class="label label-warning">Date</span></td>
-                              <td>Yes</td>
-                              <td>2nd Deember 2016</td>
-                              <td>
-                                <input type="radio" name="allowdeny2"> Allow
-                                <input type="radio" name="allowdeny2" checked="checked"> Deny
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>MRI Imagery</td>
-                              <td><span id='state1' class="label label-warning">Image</span></td>
-                              <td>No</td>
-                              <td>19th June 2018</td>
-                              <td>
-                                <input type="radio" name="allowdeny3" checked="checked"> Allow
-                                <input type="radio" name="allowdeny3"> Deny
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>CT Scan</td>
-                              <td><span id='state1' class="label label-warning">Image</span></td>
-                              <td>No</td>
-                              <td>21st January 2012</td>
-                              <td>
-                                <input type="radio" name="allowdeny4" checked="checked"> Allow
-                                <input type="radio" name="allowdeny4"> Deny
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Retinal Scan</td>
-                              <td><span id='state1' class="label label-warning">Image</span></td>
-                              <td>No</td>
-                              <td>9th May 2017</td>
-                              <td>
-                                <input type="radio" name="allowdeny5" checked="checked"> Allow
-                                <input type="radio" name="allowdeny5"> Deny
-                              </td>
-                            </tr>
-                            <!-- <tr>
-                              <td>EUX/USX</td>
-                              <td><span id='state3' class="label label-danger">Red</span></td>
-                              <td><button id='buy3' type="button" onclick="sendOrder('buy');" class="btn btn-block btn-success btn-xs">buy</button></td>
-                              <td><button id='sell3' type="button" onclick="sendOrder('sell');" class="btn btn-block btn-danger btn-xs">sell</button></td>
-                            </tr> -->   
+                          <table id="example1" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Field</th>
+                                    <th>Data Type</th>
+                                    <th>Identifying Information?</th>
+                                    <th>Last Modified</th>
+                                    <th>Allow Access?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                <td>Name</td>
+                                <td><span id='state1' class="label label-warning">String</span></td>
+                                <td>Yes</td>
+                                <td>9th November 2017</td>
+                                <td>
+                                    <input type="radio" name="allowdeny"> Allow
+                                    <input type="radio" name="allowdeny" checked="checked"> Deny
+                                </td>
+                                </tr> -->
+                                <tr>
+                                <td>Date of Birth</td>
+                                <td><span id='state1' class="label label-warning">Date</span></td>
+                                <td>Yes</td>
+                                <td>2nd Deember 2016</td>
+                                <td>
+                                    <input type="radio" name="allowdeny2"> Allow
+                                    <input type="radio" name="allowdeny2" checked="checked"> Deny
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>MRI Imagery</td>
+                                <td><span id='state1' class="label label-warning">Image</span></td>
+                                <td>No</td>
+                                <td>19th June 2018</td>
+                                <td>
+                                    <input type="radio" name="allowdeny3" checked="checked"> Allow
+                                    <input type="radio" name="allowdeny3"> Deny
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>CT Scan</td>
+                                <td><span id='state1' class="label label-warning">Image</span></td>
+                                <td>No</td>
+                                <td>21st January 2012</td>
+                                <td>
+                                    <input type="radio" name="allowdeny4" checked="checked"> Allow
+                                    <input type="radio" name="allowdeny4"> Deny
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>Retinal Scan</td>
+                                <td><span id='state1' class="label label-warning">Image</span></td>
+                                <td>No</td>
+                                <td>9th May 2017</td>
+                                <td>
+                                    <input type="radio" name="allowdeny5" checked="checked"> Allow
+                                    <input type="radio" name="allowdeny5"> Deny
+                                </td>
+                                </tr>
+                            </tbody> 
                           </table>
                         </div>
                         <!-- /.box-body -->
@@ -425,6 +423,9 @@
 <!-- Morris.js charts -->
 <script src="../../bower_components/raphael/raphael.min.js"></script>
 <script src="../../bower_components/morris.js/morris.min.js"></script>
+<!-- DataTables -->
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -433,6 +434,9 @@
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
 <script>
+    $(function () {
+        $('#example1').DataTable();
+    });
     const updateRisk = (status, color) => {
         $('#risk_status').html(status);
         $("#risk_status").attr('class', `text-${color}`);

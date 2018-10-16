@@ -38,9 +38,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>ZZ</b></span>
+      <span class="logo-mini"><b>MX</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Zing Zing</span>
+      <span class="logo-lg"><b>Magic x</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -362,6 +362,9 @@
 <!-- Morris.js charts -->
 <script src="../../bower_components/raphael/raphael.min.js"></script>
 <script src="../../bower_components/morris.js/morris.min.js"></script>
+<!-- DataTables -->
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -370,6 +373,9 @@
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
 <script>
+    $(function () {
+        $('#example1').DataTable();
+    });
     const updateRisk = (status, color) => {
         $('#risk_status').html(status);
         $("#risk_status").attr('class', `text-${color}`);
